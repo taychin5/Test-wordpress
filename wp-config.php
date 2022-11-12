@@ -107,5 +107,10 @@ if (!defined('ABSPATH')) {
 	define('ABSPATH', __DIR__ . '/');
 }
 
+$protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === 0 ? 'https://' : 'http://';
+define('WP_SITEURL', $protocol . $_SERVER['HTTP_HOST']);
+define('WP_HOME', $protocol . $_SERVER['HTTP_HOST']);
+
+
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
